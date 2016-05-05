@@ -1,0 +1,23 @@
+head
+	script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+
+form(action='addData' method='post' id='myForm')
+	|Book Id
+	br
+	input(type='text'  name='BookId')
+	br
+	|Book Name
+	br
+	input(type='text'  name='BookName')
+	br
+	|Book Author
+	br
+	input(type='text'  name='BookAuthor')
+	br
+	input(type="button" id = "iAmGoodBtn" class="iAmGoodBtn" value="add")
+
+
+	//| validate = function() {var x = document.forms["myForm"]["BookId"].value;if (x == null || x == "") {alert("enter some data"); return false;}}
+
+
+

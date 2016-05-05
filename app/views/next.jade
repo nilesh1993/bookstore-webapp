@@ -1,0 +1,17 @@
+
+-@ val bookId:Seq[String]
+-@ val bookName:Seq[String]
+-@ val bookAuthor:Seq[String]
+
+span
+    | Trial Overview......Trial Overview......Trial Overview......Trial Overview......Trial Overview......Trial Overview......
+    | HI #{bookId}
+    | #{bookName}
+    | #{bookAuthor}
+span
+    br
+        //= render("final.jade", Map("Name" -> Name))
+
+    br
+    a(title="Open Search Options" href="/query-builder")
+        | Advanced Search
