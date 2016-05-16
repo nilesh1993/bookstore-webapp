@@ -12,7 +12,7 @@ object $_scalate_$main_jade {
       import context._
       
       
-      $_scalate_$_context << ( "<h1>The BookStore</h1>\n<form action=\"addBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Add</h3>\n  </button>\n</form>\n<form action=\"deleteBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Delete</h3>\n  </button>\n</form>\n<form action=\"updateBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Update</h3>\n  </button>\n</form>\n<form action=\"searchBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Search</h3>\n  </button>\n</form>\n" );
+      $_scalate_$_context << ( "<h1>The BookStore</h1>\n<form action=\"addBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Add</h3>\n  </button>\n</form>\n<form action=\"searchBook\" method=\"get\">\n  <button id=\"addbutton\" value=\"button\" onclick=\"return validate()\">\n    <h3>Search</h3>\n  </button>\n</form>\n<!-- /form(action='deleteBook' method='get') -->\n<!-- /\tbutton(id=\"addbutton\" value=\"button\" onclick=\"return validate()\") -->\n<!-- /\t\th3 Delete -->\n<!-- /form(action='updateBook' method='get') -->\n<!-- /\tbutton(id=\"addbutton\" value=\"button\" onclick=\"return validate()\") -->\n<!-- /\t\th3 Update -->\n" );
     }
   }
 }

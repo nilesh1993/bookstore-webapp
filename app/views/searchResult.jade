@@ -1,6 +1,30 @@
+- import models.book
+-@ val objects : Seq[book]
+- var itr = 0
+- var ittr = 0
+html
+	head
+		script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+		script(type='text/javascript' src='/assets/delete.js')
+		script(type='text/javascript' src='/assets/update.js')
 
+		title result
+	body
+	form(action='deleteData' method='post' id='deleteForm')
+		table(border='1')
 
--@ val rs:String
-
-span
-	| #{rs}
+			-for(result <- objects)
+				tr
+					td
+						input(type='hidden' id='foo_#{ittr}' value='#{result.uri}')
+					td
+						input(type='text' id='bookId_#{ittr}' value='#{result.bookId}')
+					td
+						input(type='text' id='bookName_#{ittr}' value='#{result.bookName}')
+					td
+						input(type='text' id='bookAuthor_#{ittr}' value='#{result.bookAuthor}')
+					td
+						input(type='button' value='Update' id='udpateButton_#{ittr}' class='udpateButton')
+					td
+						input(type='button' value='Delete' id='deletebutton_#{ittr}' class='deletebutton')
+						-ittr = itr+1

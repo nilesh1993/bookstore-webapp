@@ -8,3 +8,26 @@ compile
 run
 compile
 run
+run 9001
+run 9005
+clean
+update
+reload
+run
+clean
+update
+reload
+compile
+cd
+cd ..
+cd
+exit
+run 
+clean
+update
+compile
+run
+clean
+update
+compile
+run

@@ -12,7 +12,7 @@ object $_scalate_$searchBook_jade {
       import context._
       
       
-      $_scalate_$_context << ( "<head>\n  <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n</head>\n<form action=\"searchData\" method=\"post\" id=\"searchForm\">\n  <select name=\"mydropdown\">\n    <option value=\"bookId\">bookId</option>\n    <option value=\"bookName\">bookName</option>\n    <option value=\"bookAuthor\">bookAuthor</option>\n    <input type=\"text\" name=\"BookId\"/>\n    <br/>\n  </select>\n  <input type=\"button\" id=\"searchbtn\" class=\"searchbtn\" value=\"search\"/>\n  <div id=\"serchData\"></div>\n  <!-- /button(id=\"searchbutton\" value=\"button\") -->\n  <!-- /\t|Search -->\n</form>\n" );
+      $_scalate_$_context << ( "<head>\n  <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n</head>\n<form action=\"searchData\" method=\"post\" id=\"searchForm\">\n  <select name=\"mydropdown\">\n    <option value=\"bookId\">bookId</option>\n    <option value=\"bookName\">bookName</option>\n    <option value=\"bookAuthor\">bookAuthor</option>\n    <input type=\"text\" name=\"BookId\"/>\n    <br/>\n  </select>\n  <input type=\"button\" id=\"searchbtn\" class=\"searchbtn\" value=\"search\"/>\n  <br/>\n  <h3 id=\"printResult\"></h3>\n  <!-- /= render(\"searchResult.jade\") -->\n  <!-- /button(id=\"searchbutton\" value=\"button\") -->\n  <!-- /\t|Search -->\n</form>\n" );
     }
   }
 }

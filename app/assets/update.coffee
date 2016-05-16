@@ -4,8 +4,14 @@ window.updatecoffee = class Updatecoffee
 	$(document).on 'click', '#searchbttn', =>
 		@search()
 
-	$(document).on 'click', '#updatebtn', =>
-		@update()
+	$(document).on 'click', '.udpateButton', (e) =>
+		target = e.target.id
+		uri = $("#foo_"+target.split("_")[1])[0].value
+		bookId= $("#bookId_"+target.split("_")[1])[0].value
+		bookName= $("#bookName_"+target.split("_")[1])[0].value
+		bookAuthor= $("#bookAuthor_"+target.split("_")[1])[0].value
+		console.log(bookAuthor)
+		@update(uri,bookId,bookName,bookAuthor)
 
 	@search: =>
 		id = document.forms['updateForm']['BookId'].value
@@ -36,24 +42,26 @@ window.updatecoffee = class Updatecoffee
 	@failCallback: (data)=>
 		$( '#serchData' ).html(data.responseText)
 
-	@update: =>
+	@update:(uri,bookId,bookName,bookAuthor) =>
 		console.log("in update")
 		jQuery.ajax({
 				type:"POST",
 				url:"/updateBook",
-				data: @updateBookData()
+				data: @updateBookData(uri,bookId,bookName,bookAuthor)
 				success: @successCall,
 				error: @failCall
 				contentType: "application/json"
 				dataType: "json"
 			})
 
-	@updateBookData: =>
-		console.log("in updatebookdata")
+	@updateBookData:(uri,bookId,bookName,bookAuthor) =>
+		console.log('in updatebookdata')
+		console.log(uri,bookId,bookName,bookAuthor)
 		data = {}
-		data['dropdown']= document.forms['updateFormm']['dropdown'].value
-		data['old']= document.forms['updateFormm']['old'].value
-		data['new']= document.forms['updateFormm']['new'].value
+		data['uri']= uri
+		data['bookId']= bookId
+		data['bookName']= bookName
+		data['bookAuthor']= bookAuthor
 		JSON.stringify(data)
 		#console.log(data['mydropdown'],data['BookId'])
 

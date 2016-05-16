@@ -12,12 +12,125 @@ object $_scalate_$searchResult_jade {
       import context._
       
       
+            import models.book
+
       ;{
-        val rs: String = $_scalate_$_context.attribute("rs")
-        $_scalate_$_context << ( "<span>\n  " );
-        $_scalate_$_context <<< (         rs
- );
-        $_scalate_$_context << ( "\n</span>\n" );
+        val objects: Seq[book] = $_scalate_$_context.attribute("objects")
+                var itr = 0
+
+                var ittr = 0
+
+        $_scalate_$_context << ( "<html>\n  <head>\n    <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n    <script type=\"text/javascript\" src=\"/assets/delete.js\"></script>\n    <script type=\"text/javascript\" src=\"/assets/update.js\"></script>\n    <title>result</title>\n  </head>\n  <body></body>\n  <form action=\"deleteData\" method=\"post\" id=\"deleteForm\">\n    <table border=\"1\">\n" );
+                for(result <- objects)
+{
+          $_scalate_$_context << ( "      <tr>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "hidden"
+            ), (
+              "id"
+            ,
+              "foo_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "value"
+            ,
+              "" + $_scalate_$_context.value(              result.uri
+, false) + ""
+          ) ) )
+          $_scalate_$_context << ( "/>\n        </td>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "text"
+            ), (
+              "id"
+            ,
+              "bookId_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "value"
+            ,
+              "" + $_scalate_$_context.value(              result.bookId
+, false) + ""
+          ) ) )
+          $_scalate_$_context << ( "/>\n        </td>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "text"
+            ), (
+              "id"
+            ,
+              "bookName_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "value"
+            ,
+              "" + $_scalate_$_context.value(              result.bookName
+, false) + ""
+          ) ) )
+          $_scalate_$_context << ( "/>\n        </td>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "text"
+            ), (
+              "id"
+            ,
+              "bookAuthor_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "value"
+            ,
+              "" + $_scalate_$_context.value(              result.bookAuthor
+, false) + ""
+          ) ) )
+          $_scalate_$_context << ( "/>\n        </td>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "button"
+            ), (
+              "value"
+            ,
+              "Update"
+            ), (
+              "id"
+            ,
+              "udpateButton_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "class"
+            ,
+              "udpateButton"
+          ) ) )
+          $_scalate_$_context << ( "/>\n        </td>\n        <td>\n          <input" );
+          $_scalate_$_context << $_scalate_$_attributes( $_scalate_$_context, List( (
+              "type"
+            ,
+              "button"
+            ), (
+              "value"
+            ,
+              "Delete"
+            ), (
+              "id"
+            ,
+              "deletebutton_" + $_scalate_$_context.value(              ittr
+, false) + ""
+            ), (
+              "class"
+            ,
+              "deletebutton"
+          ) ) )
+          $_scalate_$_context << ( "/>\n" );
+                    ittr = itr+1
+
+          $_scalate_$_context << ( "        </td>\n      </tr>\n" );
+        }
+        $_scalate_$_context << ( "    </table>\n  </form>\n</html>\n" );
       }
     }
   }

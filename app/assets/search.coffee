@@ -15,8 +15,6 @@ window.searchCoffee = class SearchCoffee
 				#data: @addSearchRequestData()
 				success: @successCallback,
 				error: @failCallback
-				contentType: "application/json"
-				dataType: "json"
 			})
 
 	@addSearchRequestData: =>
@@ -26,8 +24,10 @@ window.searchCoffee = class SearchCoffee
 		JSON.stringify(data)
 		#console.log(data['mydropdown'],data['BookId'])
 
-	@successCallback: (data)=>
-		$( '#serchData' ).html(data)
+	@successCallback: (responseData)=>
+		console.log("responseData : ", responseData)
+		$("#printResult").html(responseData)
+
 
 	@failCallback: (data)=>
 		$( '#serchData' ).html(data.responseText)

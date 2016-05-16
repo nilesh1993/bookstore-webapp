@@ -45,8 +45,8 @@ Seq[Any](format.raw/*1.1*/("""<!DOCTYPE html>
 }
               /*
                   -- GENERATED --
-                  DATE: Mon May 02 14:39:44 IST 2016
-                  SOURCE: /Users/njm1688/MyProjects/NewProjectRender/app/views/main.scala.html
+                  DATE: Thu May 12 19:37:09 IST 2016
+                  SOURCE: /Users/njm1688/bookstore-webapp/app/views/main.scala.html
                   HASH: acff89b070d968ceaa972c73890079b8852ec4f3
                   MATRIX: 579->0
                   LINES: 22->1

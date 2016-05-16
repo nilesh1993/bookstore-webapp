@@ -4,16 +4,20 @@
   window.deleteCoffee = DeleteCoffee = (function() {
     function DeleteCoffee() {}
 
-    $(document).on('click', '#deletebutton', function() {
-      return DeleteCoffee["delete"]();
+    $(document).on('click', '.deletebutton', function(e) {
+      var num, target, uri;
+      console.log('m being called');
+      target = e.target.id;
+      num = target.split("_")[1];
+      uri = $("#foo_" + target.split("_")[1])[0].value;
+      return DeleteCoffee["delete"](uri);
     });
 
-    DeleteCoffee["delete"] = function() {
-      console.log("in search");
+    DeleteCoffee["delete"] = function(uri) {
       return jQuery.ajax({
         type: "POST",
         url: "/deleteBook",
-        data: DeleteCoffee.deleteRequestData(),
+        data: DeleteCoffee.deleteRequestData(uri),
         success: DeleteCoffee.successCallback,
         error: DeleteCoffee.failCallback,
         contentType: "application/json",
@@ -21,13 +25,8 @@
       });
     };
 
-    DeleteCoffee.deleteRequestData = function() {
-      var data;
-      console.log("in deleterequestdata");
-      data = {};
-      data['BookId'] = document.forms['deleteForm']['BookId'].value;
-      data['mydropdown'] = document.forms['deleteForm']['mydropdown'].value;
-      return JSON.stringify(data);
+    DeleteCoffee.deleteRequestData = function(uri) {
+      return JSON.stringify(uri);
     };
 
     DeleteCoffee.successCallback = function() {

@@ -5,24 +5,18 @@ import java.net.URI
 import com.marklogic.xcc.{Session, ContentSourceFactory}
 import play.api.mvc._
 import controllers.Dependencies._
+import services.MarklogicService
 
 
 object Application extends Controller {
 
   def index = Action {
+    val marklogicservice = new MarklogicService("xcc://admin:admin@localhost:9999","book", "book-modules")
 
-    val uri = new URI("xcc://admin:admin@localhost:8050/bookStore");
-    val contentSource = ContentSourceFactory.newContentSource(uri);
-    val session = contentSource.newSession();
-    session.setTransactionMode(Session.TransactionMode.UPDATE);
-
-    session.submitRequest(session.newAdhocQuery("xdmp:document-insert('catalogg.xml', <BookStore></BookStore>)"));
-    println("hi")
-    session.commit();
-    session.close();
+    marklogicservice.exec("/Users/njm1688/bookstore-webapp/scripts/setup")
+    marklogicservice.loadDirectory("/Users/njm1688/bookstore-webapp/scripts/queries")
 
     Ok(defaultJadeRenderer.render("main"))
-
   }
 }
 

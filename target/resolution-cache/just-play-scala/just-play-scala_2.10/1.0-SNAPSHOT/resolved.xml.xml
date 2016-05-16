@@ -4,7 +4,7 @@
 		module="just-play-scala_2.10"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20160502143943"
+		publication="20160512193703"
 	>
 		<description>
 		just-play-scala
@@ -41,5 +41,7 @@
 		<dependency org="org.scalatra.scalate" name="scalate-core_2.10" rev="1.7.0" conf="compile->default(compile)"/>
 		<dependency org="org.jsoup" name="jsoup" rev="1.8.3" conf="compile->default(compile)"/>
 		<dependency org="com.marklogic" name="marklogic-xcc" rev="6.0.3" conf="compile->default(compile)"/>
+		<dependency org="commons-io" name="commons-io" rev="2.4" conf="compile->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ws_2.10" rev="2.3.4" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

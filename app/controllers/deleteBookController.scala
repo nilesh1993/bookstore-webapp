@@ -12,8 +12,9 @@ class deleteBookController(renderer: JadeRenderer) extends Controller{
     request => {
 
       val deleteData = request.body.asJson.get
+      println("deleteData"+deleteData.toString())
       val deleteService = new DeleteBookService()
-      deleteService.delete(deleteData)
+      deleteService.postToMl("http://localhost:8004/delete.xqy", Map("deleteData"-> deleteData.as[String]))
 
       Ok(request.body.asJson.get)
 

@@ -18,9 +18,7 @@
         type: "GET",
         url: "/searchBook/" + id + "/" + value,
         success: SearchCoffee.successCallback,
-        error: SearchCoffee.failCallback,
-        contentType: "application/json",
-        dataType: "json"
+        error: SearchCoffee.failCallback
       });
     };
 
@@ -32,8 +30,9 @@
       return JSON.stringify(data);
     };
 
-    SearchCoffee.successCallback = function(data) {
-      return $('#serchData').html(data);
+    SearchCoffee.successCallback = function(responseData) {
+      console.log("responseData : ", responseData);
+      return $("#printResult").html(responseData);
     };
 
     SearchCoffee.failCallback = function(data) {

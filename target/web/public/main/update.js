@@ -8,8 +8,15 @@
       return Updatecoffee.search();
     });
 
-    $(document).on('click', '#updatebtn', function() {
-      return Updatecoffee.update();
+    $(document).on('click', '.udpateButton', function(e) {
+      var bookAuthor, bookId, bookName, target, uri;
+      target = e.target.id;
+      uri = $("#foo_" + target.split("_")[1])[0].value;
+      bookId = $("#bookId_" + target.split("_")[1])[0].value;
+      bookName = $("#bookName_" + target.split("_")[1])[0].value;
+      bookAuthor = $("#bookAuthor_" + target.split("_")[1])[0].value;
+      console.log(bookAuthor);
+      return Updatecoffee.update(uri, bookId, bookName, bookAuthor);
     });
 
     Updatecoffee.search = function() {
@@ -44,12 +51,12 @@
       return $('#serchData').html(data.responseText);
     };
 
-    Updatecoffee.update = function() {
+    Updatecoffee.update = function(uri, bookId, bookName, bookAuthor) {
       console.log("in update");
       return jQuery.ajax({
         type: "POST",
         url: "/updateBook",
-        data: Updatecoffee.updateBookData(),
+        data: Updatecoffee.updateBookData(uri, bookId, bookName, bookAuthor),
         success: Updatecoffee.successCall,
         error: Updatecoffee.failCall,
         contentType: "application/json",
@@ -57,13 +64,15 @@
       });
     };
 
-    Updatecoffee.updateBookData = function() {
+    Updatecoffee.updateBookData = function(uri, bookId, bookName, bookAuthor) {
       var data;
-      console.log("in updatebookdata");
+      console.log('in updatebookdata');
+      console.log(uri, bookId, bookName, bookAuthor);
       data = {};
-      data['dropdown'] = document.forms['updateFormm']['dropdown'].value;
-      data['old'] = document.forms['updateFormm']['old'].value;
-      data['new'] = document.forms['updateFormm']['new'].value;
+      data['uri'] = uri;
+      data['bookId'] = bookId;
+      data['bookName'] = bookName;
+      data['bookAuthor'] = bookAuthor;
       return JSON.stringify(data);
     };
 

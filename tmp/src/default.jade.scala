@@ -14,7 +14,7 @@ object $_scalate_$default_jade {
       
       ;{
         val body: String = $_scalate_$_context.attribute("body")
-        $_scalate_$_context << ( "<head>\n  <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/search.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/delete.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/update.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/homeFormValidation.js\"></script>\n</head>\n<body>\n  " );
+        $_scalate_$_context << ( "<head>\n  <script type=\"text/javascript\" src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/search.js\"></script>\n  <script type=\"text/javascript\" src=\"/assets/homeFormValidation.js\"></script>\n</head>\n<body>\n  " );
         $_scalate_$_context << ( $_scalate_$_indent ( "  ", $_scalate_$_context.value(
            unescape(body)
         ) ) );
